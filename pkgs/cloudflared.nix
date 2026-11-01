@@ -3,7 +3,7 @@
   fetchFromGitHub,
   buildGo127Module,
 }: let
-  version = "2026.10.6";
+  version = "2026.10.7";
 in
   buildGo127Module {
     pname = "cloudflared";
@@ -13,7 +13,7 @@ in
       owner = "cloudflare";
       repo = "cloudflared";
       tag = version;
-      hash = "sha256-WfSJHX1Yj9DQIFhkrt2r9t/ZotZEacsK8aVELWRdW3o=";
+      hash = "sha256-qyGcPCYaa4UT8ws5sUW+SXCp8QWbVniB4QFR8gGE0ds=";
     };
 
     vendorHash = "sha256-ah+kI+bWIZqsi9U+AJtWME9rfjTr6QpiLQy0RXNlDzc=";

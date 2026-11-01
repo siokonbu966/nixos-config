@@ -3,7 +3,7 @@
   ollama,
 }:
 let
-  version = "0.40.13-rc1";
+  version = "0.40.13";
   llamaCppVersion = "b11963";
 in
 ollama.overrideAttrs (oldAttrs: {
