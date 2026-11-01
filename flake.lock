@@ -465,11 +465,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1793137948,
-        "narHash": "sha256-lxUM2lMx9emdQT+eFvcnOMAl9ncFhX2JUeCC3r8ur4A=",
+        "lastModified": 1793257229,
+        "narHash": "sha256-Ma/XtbY0mgqSR7EOIKL3pR0rc7o8UGmKviqxgYGm32E=",
         "owner": "Kopuz-org",
         "repo": "kopuz",
-        "rev": "0fc57c3ee7201a7ebb5afce8bd045e0f4992fb7e",
+        "rev": "b93fdaaf4be06fb40b81245d739f4fbb9f56fce7",
         "type": "github"
       },
       "original": {
