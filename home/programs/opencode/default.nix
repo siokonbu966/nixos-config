@@ -48,6 +48,11 @@ let
     mkdir -p $out/web-animation-css-animations
     cp -r ${inputs.css-animations}/dist/plugins/web-animation-css-animations/skills/web-animation-css-animations/. $out/web-animation-css-animations/
   '';
+  worktreeGuardPlugin = pkgs.runCommand "opencode-worktree-guard-plugin" { } ''
+    mkdir -p $out
+    cp ${./worktree-guard-plugin.ts} $out/index.ts
+    cp ${./worktree-guard.ts} $out/worktree-guard.ts
+  '';
 in
 {
   home.packages = [
@@ -65,6 +70,7 @@ in
       "$schema" = "https://opencode.ai/config.json";
       instructions = [
         "${config.xdg.configHome}/opencode/rules/commit-convention.md"
+        "${config.xdg.configHome}/opencode/rules/worktree-policy.md"
       ];
       permission = {
         websearch = "allow";
@@ -95,8 +101,11 @@ in
       };
       plugin = [
         "file://${inputs.i-have-adhd}/.opencode/plugins/i-have-adhd.mjs"
-        "file://${./worktree-guard.ts}"
         "file://${./auto-commit.ts}"
+      ];
+      plugins = [
+        "file://${worktreeGuardPlugin}"
+        "@prevalentware/opencode-goal-plugin@0.1.84"
       ];
       skills.paths = [
         "${inputs.yomiyasu}/skills"
@@ -137,7 +146,8 @@ in
             read = "allow";
             grep = "allow";
             glob = "allow";
-            bash = "allow";
+            # Prevent bypassing the edit/write restrictions through shell commands.
+            bash = "deny";
             webfetch = "allow";
             websearch = "allow";
           };
@@ -153,14 +163,6 @@ in
             "qwen3.5-9b".name = "qwen3.5-9b";
             "qwen3.5-9b-uncensored-hauhaucs-aggressive".name =
               "qwen3.5-9b-uncensored";
-          };
-        };
-        ollama = {
-          name = "ollama(local)";
-          options.baseURL = "http://localhost:11434/v1";
-          models = {
-            "gemma4:e2b".name = "gemma-4-e4b";
-            "qwen3.5:9b".name = "qwen3.5-9b";
           };
         };
       };

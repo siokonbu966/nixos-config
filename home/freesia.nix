@@ -5,6 +5,7 @@
     ./programs/git
     ./programs/nixvim
     ./programs/opencode
+    ./programs/hermes-agent
     ./programs/tmux
     ./programs/zsh
     ./programs/herdr
@@ -32,11 +33,12 @@
     ./programs/w3m
 
     # gui
-    ./programs/ghostty
+    ./programs/ghostty/config.nix
     ./programs/obs
     ./programs/vesktop
     ./programs/kopuz
     ./programs/whatcable
+    ./programs/firefox
 
     # utils
     ./programs/nh

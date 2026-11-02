@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, isCI ? false, ... }:
 {
   imports = [
     # cli
@@ -11,11 +11,13 @@
     ./programs/ghq
     ./programs/fzf
     ./programs/ripgrep
+    ./programs/ollama
     ./programs/opencode
+    #./programs/hermes-agent
     ./programs/direnv
     ./programs/tmux
     ./programs/zsh
-    ./programs/nushell
+    #./programs/nushell
     ./programs/herdr
     ./programs/yazi
     ./programs/gh
@@ -26,7 +28,6 @@
     ./programs/wl-clipboard
     ./programs/late-sh
     ./programs/rea
-    ./programs/ollama
 
     # gui
     ./programs/fuzzel
@@ -34,28 +35,22 @@
     ./programs/ghostty
     ./programs/alacritty
     ./programs/noctalia
-    ./programs/kitty
+    #./programs/kitty
     ./programs/vesktop
     ./programs/vlc
     ./programs/kopuz
     ./programs/tigervnc
-    ./programs/anki
     ./programs/google-chrome
     ./programs/firefox
     ./programs/zed-editor
     ./programs/vscodium
     ./programs/osu-lazer
     ./programs/prismlauncher
-    ./programs/bedrock-on-linux
     ./programs/gimp
     ./programs/nautilus # GNOME file manager
     #./programs/lmstudio
     ./programs/signal-desktop
-    ./programs/qtractor
-    ./programs/lmms
-    ./programs/kdenlive
-    ./programs/copyq
-    ./programs/effectcraft
+    ./programs/zotero
 
     # utils
     ./programs/fontconfig
@@ -98,13 +93,17 @@
     # tools
     ./tools/cursor
     ./tools/default-app
+  ]
+  ++ lib.optionals (!isCI) [
+    # Anki builds are flaky in CI; keep it enabled on user hosts.
+    ./programs/anki
   ];
 
   home = {
     username = username;
     homeDirectory = "/home/${username}";
     stateVersion = "25.05";
-    packages = [ pkgs.buzz-desktop ];
+    #packages = [ pkgs.buzz-desktop ];
   };
   programs.home-manager.enable = true;
 }
