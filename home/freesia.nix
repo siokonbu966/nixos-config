@@ -7,7 +7,6 @@
     ./programs/opencode
     ./programs/tmux
     ./programs/zsh
-    ./programs/nushell
     ./programs/herdr
     ./programs/yazi
     ./programs/gh
@@ -25,20 +24,17 @@
     ./programs/nb
     ./programs/direnv
     ./programs/late-sh
-    #./programs/anki
     ./programs/appcleaner
     ./programs/discord
     ./programs/rea
     ./programs/ollama
     ./programs/glow
-    ./programs/R
     ./programs/w3m
 
     # gui
     ./programs/ghostty
     ./programs/obs
     ./programs/vesktop
-    ./programs/effectcraft
     ./programs/kopuz
     ./programs/whatcable
 
