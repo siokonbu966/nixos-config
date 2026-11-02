@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 {
   imports = [
     # cli
@@ -8,7 +8,6 @@
     ./programs/hermes-agent
     ./programs/tmux
     ./programs/zsh
-    ./programs/nushell
     ./programs/herdr
     ./programs/yazi
     ./programs/gh
@@ -16,22 +15,29 @@
     ./programs/tree
     ./programs/btop
     ./programs/ghq
+    ./programs/google-chrome
     ./programs/fzf
     ./programs/ripgrep
+    ./programs/slack
+    ./programs/tailscale-gui
     ./programs/emacs
     ./programs/ink
     ./programs/nb
     ./programs/direnv
     ./programs/late-sh
+    ./programs/appcleaner
+    ./programs/discord
     ./programs/rea
     ./programs/ollama
     ./programs/glow
-    ./programs/R
     ./programs/w3m
 
     # gui
     ./programs/ghostty/config.nix
+    ./programs/obs
+    ./programs/vesktop
     ./programs/kopuz
+    ./programs/whatcable
     ./programs/firefox
 
     # utils

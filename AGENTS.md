@@ -57,3 +57,11 @@ nix eval '.#darwinConfigurations.<host>.config.system.build.toplevel.drvPath'
 - Home Manager is embedded as a NixOS/darwin module (`useGlobalPkgs = true`). **Never run standalone `home-manager switch`.**
 - Niri config is raw KDL at `configs/niri/config.kdl`; validate with `niri validate -c configs/niri/config.kdl`.
 - CI (`.github/workflows/actions.yml`) builds `.#nixosConfigurations.saffron-ci...toplevel` and `.#darwinConfigurations.freesia...toplevel` — use these as the reference build targets.
+
+## Home Manager package modules
+
+- Packages managed through Home Manager belong under `home/programs/<package>/default.nix`.
+- Keep each package's `home.packages`, `programs.*`, and related settings in its own module, following existing modules such as `home/programs/vesktop/default.nix` and `home/programs/obsidian/default.nix`.
+- Host profiles should enable package modules by importing their directories (for example, in `home/freesia.nix`) rather than placing package definitions inline in the host file.
+- On macOS, use `pkgs.brewCasks.<name>` for GUI apps supplied by `brew-nix`; keep system-integrated apps that need privileged components (such as Karabiner-Elements) in the nix-darwin `homebrew.casks` list.
+- Do not manage macOS Firefox profile files through Home Manager when the standard profile directory is required; the directory is TCC-protected.
