@@ -5,7 +5,7 @@
   ...
 }:
 let
-inherit (inputs) nix-darwin nix-homebrew homebrew-core homebrew-cask homebrew-bundle home-manager nixvim my-dotfiles sops-nix;
+inherit (inputs) nix-darwin nix-homebrew brew-nix homebrew-core homebrew-cask homebrew-bundle home-manager nixvim my-dotfiles sops-nix;
 in
 nix-darwin.lib.darwinSystem {
   specialArgs = { inherit self inputs username; };
@@ -35,6 +35,7 @@ nix-darwin.lib.darwinSystem {
     })
     {
       nixpkgs.overlays = [
+        brew-nix.overlays.default
         (final: prev: {
           omniwm = final.callPackage ../../../pkgs/omniwm.nix { };
           ink = final.callPackage ../../../pkgs/ink.nix { };

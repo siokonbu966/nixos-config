@@ -2,18 +2,11 @@
   homebrew = {
     enable = true;
     casks = [
+      # Firefox keeps using the standard macOS profile directory.
       "firefox"
-      "ghostty"
+      # Karabiner requires macOS system integration and privileged components.
       "karabiner-elements"
-      "discord"
-      "slack"
-      "google-chrome"
-      "lm-studio"
-      "tailscale-app"
-      "appcleaner"
-      "whatcable"
-      "anki"
-      "obs"
+      #"lm-studio"
     ];
     onActivation = {
       autoUpdate = false;

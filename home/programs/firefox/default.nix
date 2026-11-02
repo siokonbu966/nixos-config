@@ -1,5 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   defaultProfile = "2gdsw1if.default";
 
   parfait = pkgs.fetchFromGitHub {
@@ -10,7 +11,11 @@ let
   };
 in
 {
-  programs.firefox = {
+  home.packages = lib.optional isDarwin pkgs.firefox-bin-unwrapped;
+
+  # macOS uses Firefox's standard profile directory. Home Manager must not
+  # manage profiles.ini there because the directory is TCC-protected.
+  programs.firefox = lib.mkIf (!isDarwin) {
     enable = true;
     profiles = {
       default = {
@@ -59,5 +64,7 @@ in
     };
   };
 
-  home.file."${config.programs.firefox.profilesPath}/${defaultProfile}/chrome/parfait".source = "${parfait}/parfait";
+  home.file = lib.mkIf (!isDarwin) {
+    "${config.programs.firefox.profilesPath}/${defaultProfile}/chrome/parfait".source = "${parfait}/parfait";
+  };
 }
