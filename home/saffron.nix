@@ -22,7 +22,7 @@
     ./programs/yazi
     ./programs/gh
     ./programs/emacs
-    ./programs/glow
+    ./programs/bat
     ./programs/ink
     ./programs/nb
     ./programs/wl-clipboard
