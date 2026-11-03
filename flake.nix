@@ -26,6 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     xremap-flake.url = "github:xremap/nix-flake";
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
@@ -143,6 +147,10 @@
         };
 
         surface = import ./flake/hosts/surface {
+          inherit inputs username;
+        };
+
+        surface-go-2 = import ./flake/hosts/surface-go-2 {
           inherit inputs username;
         };
 
