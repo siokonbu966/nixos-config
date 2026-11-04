@@ -9,7 +9,7 @@ in
 inputs.nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   specialArgs = {
-    device = "surface-go-2";
+    device = "crinum";
     inherit username;
   };
   modules = [
@@ -25,11 +25,11 @@ inputs.nixpkgs.lib.nixosSystem {
         backupFileExtension = "backup";
         extraSpecialArgs = {
           inherit inputs username;
-          device = "surface-go-2";
+          device = "crinum";
           nixvim-module = inputs.nixvim.homeModules.nixvim;
         };
         users.${username} = {
-          imports = [ ../../../home/surface-go-2.nix ];
+          imports = [ ../../../home/crinum.nix ];
         };
       };
     }

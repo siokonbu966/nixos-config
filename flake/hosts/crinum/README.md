@@ -23,7 +23,7 @@ partition is required; the profile enables zram swap.
 ## Install
 
 Boot a 64-bit NixOS installer in UEFI mode, prepare and mount the partitions
-using the labels above, then install the `surface-go-2` flake target from this
+using the labels above, then install the `crinum` flake target from this
 repository. Before rebooting, set the configured user's password from the
 installed system root (for this repository's default user):
 
