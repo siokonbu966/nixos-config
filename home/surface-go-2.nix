@@ -21,6 +21,9 @@
     ./programs/foot
     ./programs/sway/surface-go-2.nix
     ./programs/wvkbd
+
+    # cli
+    ./programs/zsh
   ];
 
   home = {
