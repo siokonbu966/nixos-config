@@ -13,7 +13,7 @@
 
     # gui
     ./programs/fuzzel
-    ./programs/firefox/basic.nix
+    ./programs/firefox
     ./programs/mako
 
     # surface-go-2
