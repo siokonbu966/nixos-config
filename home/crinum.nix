@@ -21,11 +21,11 @@
     ./programs/mako
     ./programs/waybar
 
-    # surface-go-2
+    # crinum
     ./programs/brightnessctl
     ./programs/foot
     ./programs/playerctl
-    ./programs/sway/surface-go-2.nix
+    ./programs/sway/crinum.nix
     ./programs/wvkbd
 
     # cli

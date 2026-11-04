@@ -16,7 +16,7 @@ let
 in
 {
   # System mode runs as root and needs the Niri socket exported by hand
-  # (saffron/surface). surface-go-2 uses serviceMode = "user", where the
+  # (saffron/surface). crinum uses serviceMode = "user", where the
   # flake's systemd user service sees the Sway socket directly and this
   # override is not applied.
   systemd.services.xremap = lib.mkIf (config.services.xremap.serviceMode == "system") {

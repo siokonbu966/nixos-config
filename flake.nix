@@ -150,7 +150,7 @@
           inherit inputs username;
         };
 
-        surface-go-2 = import ./flake/hosts/surface-go-2 {
+        crinum = import ./flake/hosts/crinum {
           inherit inputs username;
         };
 

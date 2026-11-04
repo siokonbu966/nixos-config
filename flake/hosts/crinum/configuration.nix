@@ -12,7 +12,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "surface-go-2";
+  networking.hostName = "crinum";
   networking.networkmanager.enable = true;
 
   boot.loader.systemd-boot.enable = true;
