@@ -6,7 +6,7 @@
       modifier = "Mod4";
       terminal = "foot";
       menu = "fuzzel";
-      input."*".xkb_layout = "en";
+      input."*".xkb_layout = "us";
       keybindings = {
         "Mod4+Return" = "exec foot";
         "Mod4+t" = "exec foot";

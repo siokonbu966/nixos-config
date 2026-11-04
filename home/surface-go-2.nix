@@ -8,6 +8,8 @@
     ./programs/git
     ./programs/nh
     ./programs/tree
+    ./programs/ghq
+    ./programs/fzf
     ./programs/btop
     ./programs/wl-clipboard
     ./programs/gh
