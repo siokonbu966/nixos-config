@@ -3,6 +3,9 @@
   username,
   ...
 }:
+let
+  inherit (inputs) sops-nix;
+in
 inputs.nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   specialArgs = {
@@ -11,6 +14,7 @@ inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./configuration.nix
+    sops-nix.nixosModules.sops
     inputs.nixos-hardware.nixosModules.microsoft-surface-go
 
     inputs.home-manager.nixosModules.home-manager {

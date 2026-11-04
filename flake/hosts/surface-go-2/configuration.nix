@@ -1,6 +1,13 @@
 { pkgs, username, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../../modules/font.nix
+    ../../../modules/fontconfig.nix
+    ../../../modules/i18n.nix
+    ../../../modules/sops
+    ../../../modules/cachix
+  ];
 
   networking.hostName = "surface-go-2";
   networking.networkmanager.enable = true;
