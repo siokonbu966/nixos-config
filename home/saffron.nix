@@ -22,7 +22,7 @@
     ./programs/yazi
     ./programs/gh
     ./programs/emacs
-    ./programs/glow
+    ./programs/bat
     ./programs/ink
     ./programs/nb
     ./programs/wl-clipboard
@@ -93,10 +93,6 @@
     # tools
     ./tools/cursor
     ./tools/default-app
-  ]
-  ++ lib.optionals (!isCI) [
-    # Anki builds are flaky in CI; keep it enabled on user hosts.
-    ./programs/anki
   ];
 
   home = {
