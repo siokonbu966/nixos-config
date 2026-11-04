@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  imports = [ ./colors.nix ];
+
   wayland.windowManager.sway = {
     enable = true;
     config = {
@@ -103,6 +105,10 @@
       bars = [ { command = "waybar"; } ];
     };
     extraConfig = ''
+      # Remove Sway's borders and title bars for new tiled and floating windows.
+      default_border none
+      default_floating_border none
+
       exec wvkbd-mobintl
     '';
   };

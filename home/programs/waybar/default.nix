@@ -7,8 +7,8 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
-        spacing = 6;
+        height = 34;
+        spacing = 4;
 
         modules-left = [ "sway/workspaces" "sway/mode" ];
         modules-center = [ "clock" ];
@@ -76,30 +76,95 @@
     style = ''
       * {
         font-family: "Noto Sans", "Font Awesome";
-        font-size: 14px;
+        font-size: 13px;
+        min-height: 0;
       }
 
       window#waybar {
-        background: rgba(30, 30, 30, 0.8);
-        color: white;
+        background: rgba(23, 35, 43, 0.96);
+        border-bottom: 1px solid #344752;
+        color: #dce7eb;
+      }
+
+      tooltip {
+        background: #1d2c35;
+        border: 1px solid #405661;
+        border-radius: 6px;
+      }
+
+      tooltip label {
+        color: #dce7eb;
       }
 
       #workspaces button {
-        padding: 0 6px;
-        color: #cccccc;
+        margin: 4px 1px;
+        padding: 0 9px;
+        border-radius: 5px;
+        border: none;
+        background: transparent;
+        color: #a8bac2;
+        box-shadow: none;
+      }
+
+      #workspaces button:hover {
+        background: #293c46;
+        box-shadow: none;
       }
 
       #workspaces button.focused {
-        color: #ffffff;
+        background: #365461;
+        color: #edf4f6;
+      }
+
+      #workspaces button.urgent {
+        background: #49343e;
+        color: #f0dfe3;
       }
 
       #mode {
-        padding: 0 6px;
-        color: #2ca9e1;
+        margin: 4px 2px;
+        padding: 0 9px;
+        border-radius: 5px;
+        background: #365461;
+        color: #edf4f6;
+      }
+
+      #clock,
+      #pulseaudio,
+      #battery {
+        margin: 4px 2px;
+        padding: 0 9px;
+        border-radius: 5px;
+        background: #1d2c35;
+        color: #dce7eb;
+      }
+
+      #clock {
+        color: #c5d4da;
+      }
+
+      #pulseaudio.muted {
+        color: #8499a3;
+      }
+
+      #battery.charging {
+        color: #a9c8c0;
+      }
+
+      #battery.warning:not(.charging) {
+        color: #e0c79b;
+      }
+
+      #battery.critical:not(.charging) {
+        background: #49343e;
+        color: #f0dfe3;
       }
 
       #tray {
-        padding: 0 6px;
+        margin: 4px 2px;
+        padding: 0 7px;
+        border-radius: 5px;
+        background: #1d2c35;
       }
 
       #tray > .passive {

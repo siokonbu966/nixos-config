@@ -5,6 +5,8 @@ let
   terminal = "ghostty";
 in
 {
+  imports = [ ./colors.nix ];
+
   wayland.windowManager.sway = {
     enable = true;
     checkConfig = false;
@@ -16,22 +18,6 @@ in
       gaps = {
         inner = 6;
         outer = 3;
-      };
-      colors = {
-        focused = {
-          border = "#00ffff";
-          background = "#2ca9e1";
-          text = "#000000";
-          indicator = "#2e9ef4";
-          childBorder = "#2ca9e1";
-        };
-        # unfocused = {
-        #   border = "#b0c4de";
-        #   background = "#778899";
-        #   text = "#ffffff";
-        #   indicator = "#b0c4de";
-        #   childBorder = "#285577";
-        # };
       };
       bars = [
         {
@@ -76,8 +62,9 @@ in
       # bg
       output "*" background /home/${username}/Pictures/photo/wallpapers/splatoon_10th_02.jpg fill
       
-      default_border pixel 4
-      default_floating_border pixel 4
+      # Remove Sway's borders and title bars for new tiled and floating windows.
+      default_border none
+      default_floating_border none
     '';
   };
 }
