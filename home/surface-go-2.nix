@@ -10,10 +10,12 @@
     ./programs/tree
     ./programs/btop
     ./programs/wl-clipboard
+    ./programs/gh
+    ./programs/xremap
 
     # gui
     ./programs/fuzzel
-    ./programs/firefox/basic.nix
+    ./programs/firefox
     ./programs/mako
 
     # surface-go-2

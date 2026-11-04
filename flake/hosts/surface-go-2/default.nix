@@ -14,6 +14,7 @@ inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./configuration.nix
+    inputs.xremap-flake.nixosModules.default
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-hardware.nixosModules.microsoft-surface-go
 
@@ -21,6 +22,7 @@ inputs.nixpkgs.lib.nixosSystem {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
+        backupFileExtension = "backup";
         extraSpecialArgs = {
           inherit inputs username;
           device = "surface-go-2";
