@@ -29,7 +29,7 @@
     ./programs/discord
     ./programs/rea
     ./programs/ollama
-    ./programs/glow
+    ./programs/bat
     ./programs/w3m
 
     # gui

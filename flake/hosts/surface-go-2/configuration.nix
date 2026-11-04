@@ -1,6 +1,13 @@
 { pkgs, username, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../../modules/font.nix
+    ../../../modules/fontconfig.nix
+    ../../../modules/i18n.nix
+    ../../../modules/sops
+    ../../../modules/cachix
+  ];
 
   networking.hostName = "surface-go-2";
   networking.networkmanager.enable = true;
@@ -51,25 +58,15 @@
     memoryPercent = 50;
   };
 
-  i18n = {
-    defaultLocale = "ja_JP.UTF-8";
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-mozc ];
-    };
-  };
   console.keyMap = "jp106";
-
-  fonts.packages = with pkgs; [
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-  ];
 
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "video" "wheel" ];
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   time.timeZone = "Asia/Tokyo";

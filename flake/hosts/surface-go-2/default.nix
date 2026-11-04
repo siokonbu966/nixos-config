@@ -3,6 +3,9 @@
   username,
   ...
 }:
+let
+  inherit (inputs) sops-nix;
+in
 inputs.nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   specialArgs = {
@@ -11,6 +14,7 @@ inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./configuration.nix
+    inputs.sops-nix.nixosModules.sops
     inputs.nixos-hardware.nixosModules.microsoft-surface-go
 
     inputs.home-manager.nixosModules.home-manager {
@@ -18,8 +22,9 @@ inputs.nixpkgs.lib.nixosSystem {
         useGlobalPkgs = true;
         useUserPackages = true;
         extraSpecialArgs = {
-          inherit username;
+          inherit inputs username;
           device = "surface-go-2";
+          nixvim-module = inputs.nixvim.homeModules.nixvim;
         };
         users.${username} = {
           imports = [ ../../../home/surface-go-2.nix ];
