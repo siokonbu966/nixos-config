@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -7,6 +7,7 @@
     ../../../modules/i18n.nix
     ../../../modules/sops
     ../../../modules/cachix
+    ../../../modules/xremap
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -41,6 +42,14 @@
   };
 
   security.rtkit.enable = true;
+
+  # xremap: user-mode service adapted for Sway (wlroots) instead of Niri
+  services.xremap = {
+    serviceMode = "user";
+    userName = username;
+    withNiri = lib.mkForce false;
+    withWlroots = true;
+  };
 
   programs.sway = {
     enable = true;

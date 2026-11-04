@@ -11,6 +11,7 @@
     ./programs/btop
     ./programs/wl-clipboard
     ./programs/gh
+    ./programs/xremap
 
     # gui
     ./programs/fuzzel
