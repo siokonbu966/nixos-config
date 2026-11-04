@@ -6,7 +6,11 @@ let
   keymap = import ./keymap.nix { inherit ignore_apps; };
   virtual_modifiers = import ./virtual_modifiers.nix;
   deviceNames = [
-    "Keychron Keychron Receiver Keyboard" "Keychron Keychron K2" "Keychron B1 Pro Keyboard" "NuPhy NuPhy Air60 V2 Keyboard"
+    "Keychron Keychron K2"
+    "Keychron Keychron Receiver Keyboard"
+    "Keychron B1 Pro Keyboard"
+    "NuPhy NuPhy Air60 V2 Keyboard"
+    "Nordic Semiconductor NuPhy Air60 V2 Dongle Keyboard"
   ];
 in
 {
