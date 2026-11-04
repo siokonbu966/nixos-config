@@ -21,6 +21,7 @@
     # surface-go-2
     ./programs/brightnessctl
     ./programs/foot
+    ./programs/playerctl
     ./programs/sway/surface-go-2.nix
     ./programs/wvkbd
 
