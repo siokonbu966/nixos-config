@@ -7,7 +7,10 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./modules
+      ./modules/font.nix
+      ./modules/boot.nix
+      ./modules/i18n.nix
+      ./modules/logitech.nix
       ./modules/fontconfig.nix
     ];
 

@@ -11,6 +11,7 @@ inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./configuration.nix
+    inputs.sops-nix.nixosModules.sops
     inputs.nixos-hardware.nixosModules.microsoft-surface-go
 
     inputs.home-manager.nixosModules.home-manager {
