@@ -51,7 +51,6 @@
     #./programs/lmstudio
     ./programs/signal-desktop
     ./programs/zotero
-    ./programs/cisco-packet-tracer
 
     # utils
     ./programs/fontconfig
@@ -94,6 +93,9 @@
     # tools
     ./tools/cursor
     ./tools/default-app
+  ]
+  ++ lib.optionals (!isCI) [
+    ./programs/cisco-packet-tracer
   ];
 
   home = {
