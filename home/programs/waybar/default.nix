@@ -13,10 +13,6 @@
         modules-left = [ "sway/workspaces" "sway/mode" ];
         modules-center = [ "clock" ];
         modules-right = [
-          "cpu"
-          "memory"
-          "network"
-          "backlight"
           "pulseaudio"
           "battery"
           "tray"
