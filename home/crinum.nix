@@ -14,6 +14,7 @@
     ./programs/wl-clipboard
     ./programs/gh
     ./programs/xremap
+    ./programs/yazi
 
     # gui
     ./programs/fuzzel
