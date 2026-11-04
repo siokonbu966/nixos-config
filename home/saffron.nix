@@ -51,6 +51,7 @@
     #./programs/lmstudio
     ./programs/signal-desktop
     ./programs/zotero
+    ./programs/cisco-packet-tracer
 
     # utils
     ./programs/fontconfig
