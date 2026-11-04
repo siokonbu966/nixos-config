@@ -11,6 +11,7 @@
         "Mod4+Return" = "exec foot";
         "Mod4+t" = "exec foot";
         "Mod4+space" = "exec fuzzel";
+        "Mod4+Shift+space" = "exec wvkbd-toggle";
         "Mod4+Shift+e" = "exec swaymsg exit";
         "Ctrl+Alt+Delete" = "exec swaymsg exit";
 
