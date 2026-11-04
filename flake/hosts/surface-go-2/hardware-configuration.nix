@@ -6,17 +6,17 @@
     "xhci_pci"
     "nvme"
     "usb_storage"
+    "usbhid"
     "sd_mod"
-    "mmc_block"
-    "sdhci_pci"
+    "rtsx_pci_sdmmc"
   ];
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-uuid/dc11b4fc-7471-4480-bd9f-ef864ec80b82";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NIXOS_BOOT";
+    device = "/dev/disk/by-uuid/3F5F-3292";
     fsType = "vfat";
     options = [ "fmask=0077" "dmask=0077" ];
   };
