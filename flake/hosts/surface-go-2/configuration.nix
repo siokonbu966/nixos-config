@@ -9,6 +9,8 @@
     ../../../modules/cachix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   networking.hostName = "surface-go-2";
   networking.networkmanager.enable = true;
 
