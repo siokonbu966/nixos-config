@@ -48,11 +48,6 @@ let
     mkdir -p $out/web-animation-css-animations
     cp -r ${inputs.css-animations}/dist/plugins/web-animation-css-animations/skills/web-animation-css-animations/. $out/web-animation-css-animations/
   '';
-  worktreeGuardPlugin = pkgs.runCommand "opencode-worktree-guard-plugin" { } ''
-    mkdir -p $out
-    cp ${./worktree-guard-plugin.ts} $out/index.ts
-    cp ${./worktree-guard.ts} $out/worktree-guard.ts
-  '';
 in
 {
   home.packages = [
@@ -104,7 +99,6 @@ in
         "file://${./auto-commit.ts}"
       ];
       plugins = [
-        "file://${worktreeGuardPlugin}"
         "@prevalentware/opencode-goal-plugin@0.1.84"
       ];
       skills.paths = [
