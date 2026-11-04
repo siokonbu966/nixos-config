@@ -99,7 +99,8 @@
         "XF86AudioNext" = "exec playerctl next";
         "XF86AudioPrev" = "exec playerctl previous";
       };
-      bars = [ ];
+      # Sway launches Waybar; Waybar draws the bar and hosts the tray itself.
+      bars = [ { command = "waybar"; } ];
     };
     extraConfig = ''
       exec wvkbd-mobintl

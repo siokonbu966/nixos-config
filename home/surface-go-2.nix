@@ -19,6 +19,7 @@
     ./programs/fuzzel
     ./programs/firefox
     ./programs/mako
+    ./programs/waybar
 
     # surface-go-2
     ./programs/brightnessctl
