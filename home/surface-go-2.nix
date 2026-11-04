@@ -10,6 +10,7 @@
     ./programs/tree
     ./programs/btop
     ./programs/wl-clipboard
+    ./programs/xremap
 
     # gui
     ./programs/fuzzel

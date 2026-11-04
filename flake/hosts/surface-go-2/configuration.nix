@@ -1,6 +1,9 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../../modules/xremap
+  ];
 
   networking.hostName = "surface-go-2";
   networking.networkmanager.enable = true;
@@ -32,6 +35,14 @@
   };
 
   security.rtkit.enable = true;
+
+  # xremap: user-mode service adapted for Sway (wlroots) instead of Niri
+  services.xremap = {
+    serviceMode = "user";
+    userName = username;
+    withNiri = lib.mkForce false;
+    withWlroots = true;
+  };
 
   programs.sway = {
     enable = true;

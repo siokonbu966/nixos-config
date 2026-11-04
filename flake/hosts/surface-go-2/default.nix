@@ -11,6 +11,7 @@ inputs.nixpkgs.lib.nixosSystem {
   };
   modules = [
     ./configuration.nix
+    inputs.xremap-flake.nixosModules.default
     inputs.nixos-hardware.nixosModules.microsoft-surface-go
 
     inputs.home-manager.nixosModules.home-manager {
