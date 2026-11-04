@@ -93,10 +93,6 @@
     # tools
     ./tools/cursor
     ./tools/default-app
-  ]
-  ++ lib.optionals (!isCI) [
-    # Anki builds are flaky in CI; keep it enabled on user hosts.
-    ./programs/anki
   ];
 
   home = {
