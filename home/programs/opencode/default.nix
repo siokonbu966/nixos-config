@@ -48,6 +48,11 @@ let
     mkdir -p $out/web-animation-css-animations
     cp -r ${inputs.css-animations}/dist/plugins/web-animation-css-animations/skills/web-animation-css-animations/. $out/web-animation-css-animations/
   '';
+  anthropicSkills = pkgs.runCommand "anthropic-skills" { } ''
+    mkdir -p $out
+    cp -r ${inputs.anthropic-skills}/skills/frontend-design $out/
+    cp -r ${inputs.anthropic-skills}/skills/skill-creator $out/
+  '';
 in
 {
   home.packages = [
@@ -107,6 +112,7 @@ in
         "${./skills}"
         "${cssBestPracticesSkill}"
         "${cssAnimationsSkill}"
+        "${anthropicSkills}"
       ] ++ pkgs.lib.optionals (pkgs ? rea) [
         "${pkgs.rea}/lib/node_modules/rea-agents/skills"
       ];

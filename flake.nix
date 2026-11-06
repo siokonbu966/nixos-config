@@ -97,6 +97,10 @@
       url = "github:cloudflare/security-audit-skill";
       flake = false;
     };
+    anthropic-skills = {
+      url = "github:anthropics/skills";
+      flake = false;
+    };
     css-best-practices = {
       url = "github:SantosAlarcon/css-best-practices";
       flake = false;
