@@ -1,5 +1,38 @@
 (defvar-local my-markdown-mermaid-preview-file nil)
 
+(defun my-markdown-format-buffer-with-prettier ()
+  "Format the whole Markdown buffer with Prettier."
+  (interactive)
+  (unless (derived-mode-p 'markdown-mode)
+    (user-error "Not in markdown-mode"))
+  (unless (executable-find "prettier")
+    (user-error "Prettier executable not found"))
+  (let* ((input-file (or (buffer-file-name)
+                         (expand-file-name "untitled.md" default-directory)))
+         (output-buffer (generate-new-buffer " *prettier-output*"))
+         (error-file (make-temp-file "prettier-errors-")))
+    (unwind-protect
+        (let ((status (call-process-region
+                        (point-min) (point-max) "prettier" nil
+                        (list output-buffer error-file) nil
+                        "--stdin-filepath" input-file)))
+          (if (and (integerp status) (= status 0))
+              (unless (string= (buffer-substring-no-properties (point-min) (point-max))
+                               (with-current-buffer output-buffer (buffer-string)))
+                (replace-buffer-contents output-buffer)
+                (message "Formatted Markdown with Prettier"))
+            (user-error "Prettier failed (%s): %s"
+                        status
+                        (with-temp-buffer
+                          (insert-file-contents error-file)
+                          (buffer-string))))))
+      (kill-buffer output-buffer)
+      (delete-file error-file)))
+
+(with-eval-after-load 'markdown-mode
+  (define-key markdown-mode-map (kbd "C-c C-f")
+              #'my-markdown-format-buffer-with-prettier))
+
 (defun my-markdown-mermaid-preview-output-file ()
   "Return the HTML output path for the current Markdown buffer."
   (let* ((source (or (buffer-file-name) (buffer-name)))

@@ -10,6 +10,7 @@ in
 {
   home.packages = [
     (emacsPkg.override { withNativeCompilation = false; })
+    pkgs.prettier
   ]
   # 端末 (`emacs -nw') 用のシステム連携ツール。GUI 用は内蔵 selection で動く。
   ++ lib.optionals pkgs.stdenv.isLinux [

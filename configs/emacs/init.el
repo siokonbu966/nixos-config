@@ -35,6 +35,9 @@
         :ensure t
         :bind (("C-c e" . macrostep-expand)))
 
+  (leaf markdown-mode
+        :ensure t)
+
   (leaf cus-edit
         :doc "tools for customizing Emacs and Lisp packages"
         :tag "builtin" "faces" "help"
