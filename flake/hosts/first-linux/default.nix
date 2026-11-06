@@ -51,6 +51,7 @@ nixpkgs.lib.nixosSystem {
           imports = [
             noctalia.homeModules.default
             ../../../home/saffron.nix
+            ../../../home/programs/colima
           ];
         };
       };

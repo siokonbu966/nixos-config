@@ -76,9 +76,8 @@
     ./programs/swaybg
     ./programs/swayr
 
-    # vm
+    # containers
     ./programs/docker
-    ./programs/colima
 
     # saffron-specific
     ./programs/pipewire
