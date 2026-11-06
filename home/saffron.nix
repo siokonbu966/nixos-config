@@ -9,6 +9,7 @@
     ./programs/tree
     ./programs/btop
     ./programs/ghq
+    ./programs/gitea-cli
     ./programs/fzf
     ./programs/ripgrep
     ./programs/ollama

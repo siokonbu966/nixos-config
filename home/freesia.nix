@@ -15,6 +15,7 @@
     ./programs/tree
     ./programs/btop
     ./programs/ghq
+    ./programs/gitea-cli
     ./programs/google-chrome
     ./programs/fzf
     ./programs/ripgrep
