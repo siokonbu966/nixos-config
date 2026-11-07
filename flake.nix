@@ -71,10 +71,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    repro2 = {
-      url = "github:bot-uichan/repro2/feat/tailscale-idp";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     # check update
     herdr = {
       url = "github:herdrdev/herdr/v0.9.1";
@@ -95,6 +91,10 @@
     };
     security-audit = {
       url = "github:cloudflare/security-audit-skill";
+      flake = false;
+    };
+    anthropic-skills = {
+      url = "github:anthropics/skills";
       flake = false;
     };
     css-best-practices = {

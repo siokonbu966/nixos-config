@@ -9,6 +9,7 @@
     ./programs/tree
     ./programs/btop
     ./programs/ghq
+    ./programs/gitea-cli
     ./programs/fzf
     ./programs/ripgrep
     ./programs/ollama
@@ -76,9 +77,8 @@
     ./programs/swaybg
     ./programs/swayr
 
-    # vm
+    # containers
     ./programs/docker
-    ./programs/colima
 
     # saffron-specific
     ./programs/pipewire
@@ -94,6 +94,9 @@
     ./tools/cursor
     ./tools/default-app
     ./tools/variables
+  ]
+  ++ lib.optionals (!isCI) [
+    ./programs/cisco-packet-tracer
   ];
 
   home = {

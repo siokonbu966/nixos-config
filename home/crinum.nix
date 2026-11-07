@@ -9,11 +9,13 @@
     ./programs/nh
     ./programs/tree
     ./programs/ghq
+    ./programs/gitea-cli
     ./programs/fzf
     ./programs/btop
     ./programs/wl-clipboard
     ./programs/gh
     ./programs/xremap
+    ./programs/yazi
 
     # gui
     ./programs/fuzzel
