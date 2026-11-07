@@ -17,14 +17,6 @@ nixpkgs.lib.nixosSystem {
     ./configuration.nix
     sops-nix.nixosModules.sops
     xremap-flake.nixosModules.default
-    repro2.nixosModules.default
-    {
-      services.repro2-sender = {
-        enable = true;
-        registryUrl = "https://repro2-test-server.tail07452a.ts.net:8443/";
-        blobUrl = "https://repro2-test-server.tail07452a.ts.net:8444/";
-      };
-    }
     nix-ld.nixosModules.nix-ld
     { programs.nix-ld.dev.enable = true; }
   ]
