@@ -93,6 +93,7 @@
     # tools
     ./tools/cursor
     ./tools/default-app
+    ./tools/variables
   ]
   ++ lib.optionals (!isCI) [
     ./programs/cisco-packet-tracer
