@@ -12,6 +12,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.openssh.settings.PasswordAuthentication = false;
+
   networking.hostName = "crinum";
   networking.networkmanager.enable = true;
 
