@@ -61,7 +61,7 @@ in
 
   xdg.configFile."opencode/rules/commit-convention.md".source =
     ./rules/commit-convention.md;
-  xdg.configFile."opencode/rules/agent.md".source = ./rules/agent.md;
+  xdg.configFile."opencode/AGENT.md".source = ./rules/agent.md;
 
   xdg.configFile."opencode/command/log.md".source = ./command/log.md;
   xdg.configFile."opencode/command/pr.md".source = ./command/pr.md;
@@ -70,7 +70,7 @@ in
     (pkgs.formats.json { }).generate "opencode.json" {
       "$schema" = "https://opencode.ai/config.json";
       instructions = [
-        "${config.xdg.configHome}/opencode/rules/agent.md"
+        "${config.xdg.configHome}/opencode/AGENT.md"
         "${config.xdg.configHome}/opencode/rules/commit-convention.md"
         "${config.xdg.configHome}/opencode/rules/worktree-policy.md"
       ];
