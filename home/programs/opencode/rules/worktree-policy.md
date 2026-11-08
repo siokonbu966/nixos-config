@@ -8,3 +8,4 @@ At the start of each task in a Git repository, inspect the current branch, worki
 - Do not enforce this policy with an edit-time plugin, session-ID ownership lock, or automatic association between an OpenCode session and a worktree. `session_move` is not required.
 - When using a new branch/worktree, use a descriptive branch name matching the task (for example, `feat/<name>`, `fix/<name>`, or `docs/<name>`). Check for an existing branch/worktree first and follow repository conventions. Base it on the default branch unless the task depends on unmerged work or the user specifies another base.
 - Before creating a new worktree, check for uncommitted changes. Never move or copy them implicitly; ask the user if they are needed or the task boundary is unclear.
+- Worktrees must always be created under `.git/wt/`.
