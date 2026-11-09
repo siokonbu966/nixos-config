@@ -131,6 +131,11 @@
           inherit self inputs username;
         };
 
+        "freesia-ci" = import ./flake/hosts/freesia {
+          inherit self inputs username;
+          isCI = true;
+        };
+
         "zephyr" = import ./flake/hosts/zephyr {
           username = "zephyr";
           inherit self inputs;

@@ -1,4 +1,4 @@
-{ pkgs, inputs }:
+{ lib, pkgs, inputs, isCI ? false, ... }:
 let
   addons = (pkgs.extend inputs.firefox-addons.overlays.default).firefox-addons;
   soundfixerXpi = pkgs.fetchFirefoxAddon {
@@ -54,6 +54,7 @@ in
     proton-pass
     ublock-origin
     soundfixer
+  ] ++ lib.optionals (!isCI) [
     nnnLocalstorage
     feedExt
   ];
