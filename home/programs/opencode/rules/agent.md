@@ -1,6 +1,6 @@
 # Initialization
 
-Refer to `worktree-policy.md` to verify whether the current branch is appropriate. If it is not, create a separate worktree in accordance with the defined policy.
+Refer to `rule/worktree-policy.md` to verify whether the current branch is appropriate. If it is not, create a separate worktree in accordance with the defined policy.
 
 # Gitea
 
