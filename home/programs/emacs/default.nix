@@ -6,10 +6,20 @@ let
       pkgs.emacs
     else
       (pkgs.emacs-pgtk or pkgs.emacs);
+  emacsPackage = emacsPkg.override { withNativeCompilation = false; };
+  # Terminal invocations use -nw; desktop launchers without a TTY stay graphical.
+  emacsWrapper = pkgs.writeShellScriptBin "emacs" ''
+    if [ -t 0 ] && [ -t 1 ]; then
+      exec ${emacsPackage}/bin/emacs -nw "$@"
+    else
+      exec ${emacsPackage}/bin/emacs "$@"
+    fi
+  '';
 in
 {
   home.packages = [
-    (emacsPkg.override { withNativeCompilation = false; })
+    emacsPackage
+    (lib.hiPrio emacsWrapper)
     pkgs.prettier
   ]
   # 端末 (`emacs -nw') 用のシステム連携ツール。GUI 用は内蔵 selection で動く。

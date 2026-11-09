@@ -25,6 +25,7 @@
     ./programs/emacs
     ./programs/bat
     ./programs/ink
+    ./programs/leaf
     ./programs/nb
     ./programs/wl-clipboard
     ./programs/late-sh
