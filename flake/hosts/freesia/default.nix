@@ -2,6 +2,7 @@
   self,
   inputs,
   username,
+  isCI ? false,
   ...
 }:
 let
@@ -55,7 +56,7 @@ nix-darwin.lib.darwinSystem {
         useUserPackages = true;
         backupFileExtension = "backup";
         extraSpecialArgs = {
-          isCI = false;
+          inherit isCI;
           inherit
             inputs
             my-dotfiles
