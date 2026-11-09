@@ -42,6 +42,7 @@
     ./programs/google-chrome
     ./programs/discord
     ./programs/slack
+    ./programs/signal-desktop
 
     # utils
     ./programs/nh
