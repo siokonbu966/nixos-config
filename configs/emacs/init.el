@@ -82,6 +82,7 @@
 (setq save-interprogram-paste-before-kill t)
 (setq select-active-regions t)
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+(setq scroll-error-top-bottom t)
 
 ;; (leaf tab-bar-mode
 ;;     :init
