@@ -7,7 +7,10 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./modules
+      ./modules/font.nix
+      ./modules/boot.nix
+      ./modules/i18n.nix
+      ./modules/logitech.nix
       ./modules/fontconfig.nix
     ];
 
@@ -118,6 +121,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

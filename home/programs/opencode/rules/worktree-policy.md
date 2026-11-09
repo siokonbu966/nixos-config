@@ -1,13 +1,11 @@
-# Task-scoped worktree policy
+# Task and branch alignment
 
-For Git repositories, keep each independent task on its own branch and worktree.
+At the start of each task in a Git repository, inspect the current branch, working-tree status, and the user's request before editing.
 
-- Before making changes, inspect the current branch and working-tree status. Do not assume the current branch is appropriate just because it is not `main` or `master`.
-- Continue using the current worktree for follow-ups to the same objective. Read-only questions do not need a new worktree.
-- For an unrelated objective, create a new worktree and branch before editing, even when the current branch is already a feature branch. Do not switch branches or repurpose the current checkout.
-- Base the new branch on the repository's default branch unless the task explicitly depends on unmerged work or the user specifies another base.
-- Follow the repository's worktree location and branch-naming conventions. When working from a linked worktree, resolve the common Git directory with `git rev-parse --path-format=absolute --git-common-dir`; `.git` may be a file rather than a directory.
-- Check for an existing worktree or branch name before creating one. Use a descriptive branch name appropriate to the change (for example, `feat/<name>`, `fix/<name>`, or `docs/<name>`).
-- After creating the worktree, associate this OpenCode session with it using the session-move capability when available. Do not make edits in the old worktree after moving.
-- Never move or copy uncommitted changes into a new worktree implicitly. If the task depends on those changes, or task separation is ambiguous, ask the user before proceeding.
-- If a new worktree cannot be created or the session cannot be moved, stop before editing and explain the blocker rather than silently continuing in the existing checkout.
+- Check whether the current branch name and its apparent purpose match the task's intent. Judge semantic alignment, not just whether the branch is non-empty or has a topic prefix. For example, `feat/opencode_branch_intent_check` fits work on branch/task alignment, but not an unrelated package update.
+- If the branch clearly matches, continue in the current worktree. Follow-up questions or changes for the same objective do not need a new branch or worktree.
+- If the branch is `main`/`master`, its purpose conflicts with the request, or the match is unclear, use a task-specific branch/worktree instead of editing here. The agent may create and switch to that worktree without asking the user for permission.
+- Do not enforce this policy with an edit-time plugin, session-ID ownership lock, or automatic association between an OpenCode session and a worktree. `session_move` is not required.
+- When using a new branch/worktree, use a descriptive branch name matching the task (for example, `feat/<name>`, `fix/<name>`, or `docs/<name>`). Check for an existing branch/worktree first and follow repository conventions. Base it on the default branch unless the task depends on unmerged work or the user specifies another base.
+- Before creating a new worktree, check for uncommitted changes. Never move or copy them implicitly; ask the user if they are needed or the task boundary is unclear.
+- Worktrees must always be created under `.git/wt/`.

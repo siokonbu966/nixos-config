@@ -48,10 +48,10 @@ let
     mkdir -p $out/web-animation-css-animations
     cp -r ${inputs.css-animations}/dist/plugins/web-animation-css-animations/skills/web-animation-css-animations/. $out/web-animation-css-animations/
   '';
-  worktreeGuardPlugin = pkgs.runCommand "opencode-worktree-guard-plugin" { } ''
+  anthropicSkills = pkgs.runCommand "anthropic-skills" { } ''
     mkdir -p $out
-    cp ${./worktree-guard-plugin.ts} $out/index.ts
-    cp ${./worktree-guard.ts} $out/worktree-guard.ts
+    cp -r ${inputs.anthropic-skills}/skills/frontend-design $out/
+    cp -r ${inputs.anthropic-skills}/skills/skill-creator $out/
   '';
 in
 {
@@ -61,6 +61,7 @@ in
 
   xdg.configFile."opencode/rules/commit-convention.md".source =
     ./rules/commit-convention.md;
+  xdg.configFile."opencode/AGENT.md".source = ./rules/agent.md;
 
   xdg.configFile."opencode/command/log.md".source = ./command/log.md;
   xdg.configFile."opencode/command/pr.md".source = ./command/pr.md;
@@ -69,6 +70,7 @@ in
     (pkgs.formats.json { }).generate "opencode.json" {
       "$schema" = "https://opencode.ai/config.json";
       instructions = [
+        "${config.xdg.configHome}/opencode/AGENT.md"
         "${config.xdg.configHome}/opencode/rules/commit-convention.md"
         "${config.xdg.configHome}/opencode/rules/worktree-policy.md"
       ];
@@ -104,7 +106,7 @@ in
         "file://${./auto-commit.ts}"
       ];
       plugins = [
-        "file://${worktreeGuardPlugin}"
+        "@prevalentware/opencode-goal-plugin@0.1.84"
       ];
       skills.paths = [
         "${inputs.yomiyasu}/skills"
@@ -112,6 +114,7 @@ in
         "${./skills}"
         "${cssBestPracticesSkill}"
         "${cssAnimationsSkill}"
+        "${anthropicSkills}"
       ] ++ pkgs.lib.optionals (pkgs ? rea) [
         "${pkgs.rea}/lib/node_modules/rea-agents/skills"
       ];
@@ -145,7 +148,8 @@ in
             read = "allow";
             grep = "allow";
             glob = "allow";
-            bash = "allow";
+            # Prevent bypassing the edit/write restrictions through shell commands.
+            bash = "deny";
             webfetch = "allow";
             websearch = "allow";
           };

@@ -26,10 +26,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     xremap-flake.url = "github:xremap/nix-flake";
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    brew-nix = {
+      url = "github:BatteredBunny/brew-nix";
+      inputs.brew-api.follows = "brew-api";
+      inputs.nix-darwin.follows = "nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    brew-api = {
+      url = "github:BatteredBunny/brew-api";
+      flake = false;
     };
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -57,10 +71,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    repro2 = {
-      url = "github:bot-uichan/repro2/feat/tailscale-idp";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     # check update
     herdr = {
       url = "github:herdrdev/herdr/v0.9.1";
@@ -81,6 +91,10 @@
     };
     security-audit = {
       url = "github:cloudflare/security-audit-skill";
+      flake = false;
+    };
+    anthropic-skills = {
+      url = "github:anthropics/skills";
       flake = false;
     };
     css-best-practices = {
@@ -133,6 +147,10 @@
         };
 
         surface = import ./flake/hosts/surface {
+          inherit inputs username;
+        };
+
+        crinum = import ./flake/hosts/crinum {
           inherit inputs username;
         };
 

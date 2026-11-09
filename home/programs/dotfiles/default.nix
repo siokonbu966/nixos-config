@@ -11,7 +11,6 @@ in
     "fastfetch".source = "${my-dotfiles}/fastfetch";
   } // deviceConfig_xdg;
   home.file = {
-    ".p10k.zsh".source = "${my-dotfiles}/.p10k.zsh";
     ".bashrc".source = ../../../configs/bash/.bashrc;
   };
 }

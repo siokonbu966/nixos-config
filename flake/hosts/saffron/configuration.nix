@@ -1,4 +1,4 @@
-{ pkgs, lib, isCI ? false, ... }:
+{ pkgs, lib, username, isCI ? false, ... }:
 {
   imports = [
     ../../../configuration.nix
@@ -16,6 +16,9 @@
   ];
 
   networking.hostName = "saffron";
+
+  virtualisation.docker.enable = !isCI;
+  users.users.${username}.extraGroups = lib.optionals (!isCI) [ "docker" ];
 
   networking.interfaces.enp10s0.ipv4.addresses = [{
     address = "192.168.0.92";

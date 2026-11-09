@@ -90,6 +90,8 @@
         "Keychron Keychron Receiver Keyboard"
         "Keychron B1 Pro Keyboard"
         "NuPhy NuPhy Air60 V2 Keyboard"
+        "Nordic Semiconductor NuPhy Air60 V2 Dongle Keyboard"
+        "Nordic Semiconductor NuPhy Air60 V2 Dongle"
       ];
     };
     application = {

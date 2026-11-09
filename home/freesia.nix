@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 {
   imports = [
     # cli
@@ -6,7 +6,6 @@
     ./programs/nixvim
     ./programs/opencode
     ./programs/zsh
-    ./programs/nushell
     ./programs/herdr
     ./programs/yazi
     ./programs/gh
@@ -17,14 +16,18 @@
     ./programs/gitea-cli
     ./programs/fzf
     ./programs/ripgrep
+    ./programs/slack
+    ./programs/tailscale-gui
     ./programs/emacs
     ./programs/ink
     ./programs/nb
     ./programs/direnv
     ./programs/late-sh
+    ./programs/appcleaner
+    ./programs/discord
     ./programs/rea
-    ./programs/glow
-    ./programs/R
+    ./programs/ollama
+    ./programs/bat
     ./programs/w3m
 
     # gui
@@ -34,6 +37,7 @@
     ./programs/obs
     ./programs/vesktop
     ./programs/kopuz
+    ./programs/whatcable
     ./programs/firefox
     ./programs/google-chrome
     ./programs/discord

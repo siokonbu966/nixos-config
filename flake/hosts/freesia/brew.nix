@@ -2,17 +2,10 @@
   homebrew = {
     enable = true;
     casks = [
+      # Karabiner requires macOS system integration and privileged components.
       "ghostty"
       "karabiner-elements"
-      "discord"
-      "slack"
-      "google-chrome"
-      "lm-studio"
-      "tailscale-app"
-      "appcleaner"
-      "whatcable"
-      "anki"
-      "obs"
+      #"lm-studio"
     ];
     onActivation = {
       autoUpdate = false;

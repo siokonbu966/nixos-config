@@ -6,16 +6,20 @@
   ...
 }:
 let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   defaultProfile = "2gdsw1if.default";
   parfait = import ./parfait.nix { inherit pkgs; };
   containers = import ./containers.nix { inherit lib; };
   extensions = import ./extensions.nix { inherit pkgs inputs; };
 in
 {
+  # Keep the managed profile outside macOS's protected default application
+  # support directory. The wrapped Nix package uses this as MOZ_APP_DATA.
   programs.firefox = {
     enable = true;
     package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.firefox;
-    configPath = ".mozilla/firefox";
+    configPath =
+      if isDarwin then "${config.xdg.configHome}/mozilla/firefox" else ".mozilla/firefox";
     profiles = {
       default = {
         id = 0;
@@ -129,6 +133,12 @@ in
     };
   };
 
-  home.file."${config.programs.firefox.profilesPath}/${defaultProfile}/chrome/parfait".source =
-    "${parfait.package}/parfait";
+  home.file = {
+    "${config.programs.firefox.profilesPath}/${defaultProfile}/chrome/parfait".source =
+      "${parfait.package}/parfait";
+  } // lib.optionalAttrs isDarwin {
+    # Make the wrapped app discoverable to Finder and Launch Services.
+    "Applications/Home Manager Apps/Firefox.app".source =
+      "${config.programs.firefox.finalPackage}/Applications/Firefox.app";
+  };
 }

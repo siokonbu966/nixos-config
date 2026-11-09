@@ -8,11 +8,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "souieba";
-  version = "0.5.0";
+  version = "2.0.0";
 
   src = fetchurl {
     url = "https://registry.npmjs.org/souieba/-/souieba-${finalAttrs.version}.tgz";
-    hash = "sha512-HOweEHXsa4Gt3mfXd+hP8syYQbgihWvC66RXMC2sQkgd/JFcEHhoHzFpMIj/prrToSxaAA9iZNSM0Ui+qU9Yiw==";
+    hash = "sha256-SsUkLlRdeWV6+mU7lSteS4gyNRV0j+BXTgPkwqC2ojI=";
   };
 
   nativeBuildInputs = [ makeWrapper ];

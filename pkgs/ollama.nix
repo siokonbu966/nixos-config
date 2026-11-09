@@ -3,7 +3,7 @@
   ollama,
 }:
 let
-  version = "0.40.13-rc1";
+  version = "0.40.14";
   llamaCppVersion = "b11963";
 in
 ollama.overrideAttrs (oldAttrs: {
@@ -13,7 +13,7 @@ ollama.overrideAttrs (oldAttrs: {
     owner = "ollama";
     repo = "ollama";
     tag = "v${version}";
-    hash = "sha256-cxpgG6l97S7f+XZy5Hb689MYpVnbaqxBhzHLL62zAKM=";
+    hash = "sha256-IrTfIgwBqjdINyWqArWaa56k5ToeYW2RxTZiN/A12as=";
   };
 
   vendorHash = "sha256-1mzJrZUHH2ouP6I+LVojHbft7No5AumqKZVq0I/Ubsg=";

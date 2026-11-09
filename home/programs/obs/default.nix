@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  programs.obs-studio = {
+  home.packages = lib.optional pkgs.stdenv.hostPlatform.isDarwin pkgs.brewCasks.obs;
+
+  programs.obs-studio = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
 
     # optional Nvidia hardware acceleration

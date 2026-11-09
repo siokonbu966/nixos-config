@@ -42,8 +42,8 @@ nix eval '.#darwinConfigurations.<host>.config.system.build.toplevel.drvPath'
 
 ## Git & Worktree Rules (important)
 
-- **`main`/`master` are protected.** The plugin `home/programs/opencode/worktree-guard.ts` throws on `edit`/`write` there. Work only inside a worktree:
-  `git worktree add .git/wt/<type>/<name> -b <type>/<name>` (this worktree: `.git/wt/feat/opencode_config`).
+- **Check task/branch alignment before making changes.** OpenCode's `home/programs/opencode/rules/worktree-policy.md` instructs the agent to verify that the current branch name and purpose match the task, and to ask before editing when they do not. There is no edit-time worktree guard or session/worktree ownership lock.
+- Keep `main`/`master` protected. When the current branch is protected or mismatched, agree on a task-specific branch/worktree with the user before editing, staging, committing, or pushing.
 - Commit messages: **English only** (enforced by `home/programs/opencode/AGENTS.md`). Use Conventional Commits as in history: `feat(opencode): ...`, `fix(sops): ...`, `chore(nix): ...`, `refactor(git): ...`.
 - **`git add` every new file before building/evaluating.** Flakes ignore untracked files, so the evaluator won't see them.
 - Flake input updates are automated daily (`.github/workflows/update-flake.yml`, min release age 3 days, auto-merge). Don't hand-edit `flake.lock`.
@@ -56,3 +56,11 @@ nix eval '.#darwinConfigurations.<host>.config.system.build.toplevel.drvPath'
 - Home Manager is embedded as a NixOS/darwin module (`useGlobalPkgs = true`). **Never run standalone `home-manager switch`.**
 - Niri config is raw KDL at `configs/niri/config.kdl`; validate with `niri validate -c configs/niri/config.kdl`.
 - CI (`.github/workflows/actions.yml`) builds `.#nixosConfigurations.saffron-ci...toplevel` and `.#darwinConfigurations.freesia...toplevel` — use these as the reference build targets.
+
+## Home Manager package modules
+
+- Packages managed through Home Manager belong under `home/programs/<package>/default.nix`.
+- Keep each package's `home.packages`, `programs.*`, and related settings in its own module, following existing modules such as `home/programs/vesktop/default.nix` and `home/programs/obsidian/default.nix`.
+- Host profiles should enable package modules by importing their directories (for example, in `home/freesia.nix`) rather than placing package definitions inline in the host file.
+- On macOS, use `pkgs.brewCasks.<name>` for GUI apps supplied by `brew-nix`; keep system-integrated apps that need privileged components (such as Karabiner-Elements) in the nix-darwin `homebrew.casks` list.
+- Do not manage macOS Firefox profile files through Home Manager when the standard profile directory is required; the directory is TCC-protected.

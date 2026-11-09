@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, isCI ? false, ... }:
 {
   imports = [
     # cli
@@ -9,8 +9,10 @@
     ./programs/tree
     ./programs/btop
     ./programs/ghq
+    ./programs/gitea-cli
     ./programs/fzf
     ./programs/ripgrep
+    ./programs/ollama
     ./programs/opencode
     #./programs/hermes-agent
     ./programs/direnv
@@ -21,7 +23,7 @@
     ./programs/yazi
     ./programs/gh
     ./programs/emacs
-    ./programs/glow
+    ./programs/bat
     ./programs/ink
     ./programs/nb
     ./programs/wl-clipboard
@@ -39,7 +41,6 @@
     ./programs/vlc
     ./programs/kopuz
     ./programs/tigervnc
-    ./programs/anki
     ./programs/google-chrome
     ./programs/firefox
     ./programs/zed-editor
@@ -76,9 +77,8 @@
     ./programs/swaybg
     ./programs/swayr
 
-    # vm
+    # containers
     ./programs/docker
-    ./programs/colima
 
     # saffron-specific
     ./programs/pipewire
@@ -93,6 +93,10 @@
     # tools
     ./tools/cursor
     ./tools/default-app
+    ./tools/variables
+  ]
+  ++ lib.optionals (!isCI) [
+    ./programs/cisco-packet-tracer
   ];
 
   home = {
