@@ -1,14 +1,40 @@
 { lib, pkgs, inputs, isCI ? false, ... }:
 let
   addons = (pkgs.extend inputs.firefox-addons.overlays.default).firefox-addons;
-  soundfixerXpi = pkgs.fetchFirefoxAddon {
-    name = "soundfixer-1.4.1";
+  enhancerForYoutube = addons.buildFirefoxXpiAddon {
+    pname = "enhancer-for-youtube";
+    version = "2.0.136";
+    addonId = "enhancerforyoutube@maximerf.addons.mozilla.org";
+    url = "https://addons.mozilla.org/firefox/downloads/file/4933627/enhancer_for_youtube-2.0.136.xpi";
+    sha256 = "38a0420804d08224fc44e838aec432e947eb688b1300f423eeecbb44d33037fa";
+    meta = with pkgs.lib; {
+      homepage = "https://www.mrfdev.com/enhancer-for-youtube";
+      description = "Take control of YouTube and boost your user experience!";
+      license = {
+        shortName = "enhancer-for-youtube";
+        fullName = "Custom License for Enhancer for YouTube™";
+        url = "https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/license/";
+        free = false;
+      };
+      mozPermissions = [
+        "storage"
+        "*://www.youtube.com/*"
+        "*://www.youtube.com/embed/*"
+        "*://www.youtube.com/live_chat*"
+        "*://www.youtube.com/shorts/*"
+      ];
+      platforms = platforms.all;
+    };
+  };
+  soundfixerXpi = pkgs.fetchurl {
+    name = "soundfixer-1.4.1.xpi";
     url = "https://addons.mozilla.org/firefox/downloads/file/4205769/soundfixer-1.4.1.xpi";
     sha256 = "b229c77635e4e89ab586144aea2fcc977a2c5e51509a84ac884fa59e29ee7792";
   };
   soundfixer = pkgs.runCommand "soundfixer-1.4.1" { inherit soundfixerXpi; } ''
-    mkdir -p $out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
-    cp $soundfixerXpi/*.xpi $out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/soundfixer@unrelenting.technology.xpi
+    extensionDir="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+    mkdir -p "$extensionDir"
+    cp "$soundfixerXpi" "$extensionDir/soundfixer@unrelenting.technology.xpi"
   '' // {
     addonId = "soundfixer@unrelenting.technology";
     extid = "soundfixer@unrelenting.technology";
@@ -50,7 +76,7 @@ in
     wayback-machine
     zotero-connector
     vimium
-    enhancer-for-youtube
+    enhancerForYoutube
     proton-pass
     ublock-origin
     soundfixer
