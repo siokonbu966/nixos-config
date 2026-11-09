@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  isCI ? false,
   ...
 }:
 let
@@ -10,7 +11,7 @@ let
   defaultProfile = "2gdsw1if.default";
   parfait = import ./parfait.nix { inherit pkgs; };
   containers = import ./containers.nix { inherit lib; };
-  extensions = import ./extensions.nix { inherit pkgs inputs; };
+  extensions = import ./extensions.nix { inherit lib pkgs inputs isCI; };
 in
 {
   # Keep the managed profile outside macOS's protected default application

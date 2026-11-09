@@ -40,6 +40,7 @@ nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         backupFileExtension = "backup";
         extraSpecialArgs = {
+          isCI = false;
           inherit
             inputs
             my-dotfiles

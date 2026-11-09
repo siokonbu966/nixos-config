@@ -24,6 +24,7 @@ inputs.nixpkgs.lib.nixosSystem {
         useUserPackages = true;
         backupFileExtension = "backup";
         extraSpecialArgs = {
+          isCI = false;
           inherit inputs username;
           device = "crinum";
           nixvim-module = inputs.nixvim.homeModules.nixvim;
