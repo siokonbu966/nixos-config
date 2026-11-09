@@ -5,8 +5,6 @@
     ./programs/git
     ./programs/nixvim
     ./programs/opencode
-    ./programs/hermes-agent
-    ./programs/tmux
     ./programs/zsh
     ./programs/nushell
     ./programs/herdr
@@ -16,6 +14,7 @@
     ./programs/tree
     ./programs/btop
     ./programs/ghq
+    ./programs/gitea-cli
     ./programs/fzf
     ./programs/ripgrep
     ./programs/emacs
@@ -30,8 +29,15 @@
 
     # gui
     ./programs/ghostty/config.nix
+    ./programs/tailscale-gui
+    ./programs/appcleaner
+    ./programs/obs
+    ./programs/vesktop
     ./programs/kopuz
     ./programs/firefox
+    ./programs/google-chrome
+    ./programs/discord
+    ./programs/slack
 
     # utils
     ./programs/nh
