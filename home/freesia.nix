@@ -16,6 +16,7 @@
     ./programs/gitea-cli
     ./programs/fzf
     ./programs/ripgrep
+    ./programs/leaf
     ./programs/slack
     ./programs/tailscale-gui
     ./programs/emacs
