@@ -64,7 +64,6 @@
     ./programs/nil # nix language server
     ./programs/gnumake
     ./programs/usbutils
-    ./programs/wireshark
     ./programs/easyeffect
     ./programs/pandoc
     ./programs/wayvr
