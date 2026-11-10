@@ -19,6 +19,7 @@
 
   virtualisation.docker.enable = !isCI;
   programs.wireshark.enable = !isCI;
+  programs.wireshark.package = pkgs.wireshark;
   users.users.${username}.extraGroups = lib.optionals (!isCI) [ "docker" "wireshark" ];
 
   networking.interfaces.enp10s0.ipv4.addresses = [{
