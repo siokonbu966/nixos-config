@@ -917,6 +917,26 @@
         "type": "github"
       }
     },
+    "pentect": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794239668,
+        "narHash": "sha256-nNfcgNTfqNAF5m5Zcy3n5BPdbC0pa21oGjaxdK3btsk=",
+        "owner": "Akagumi-Inc",
+        "repo": "pentect",
+        "rev": "aa531e25cb48aacd7afcd769dbb31153816e3d56",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Akagumi-Inc",
+        "repo": "pentect",
+        "type": "github"
+      }
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1021,6 +1041,7 @@
         "nixvim": "nixvim",
         "noctalia": "noctalia",
         "opencode": "opencode",
+        "pentect": "pentect",
         "security-audit": "security-audit",
         "sops-nix": "sops-nix",
         "xremap-flake": "xremap-flake",

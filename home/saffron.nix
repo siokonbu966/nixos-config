@@ -20,6 +20,7 @@
     ./programs/zsh
     #./programs/nushell
     ./programs/herdr
+    ./programs/pentect
     ./programs/yazi
     ./programs/gh
     ./programs/emacs
