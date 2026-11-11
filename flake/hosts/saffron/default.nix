@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (inputs) nixpkgs home-manager nixvim nix-ld xremap-flake noctalia my-dotfiles lanzaboote xwayland-satellite sops-nix repro2;
+  inherit (inputs) nixpkgs home-manager nixvim nix-ld xremap-flake noctalia my-dotfiles lanzaboote xwayland-satellite sops-nix;
 in
 nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
