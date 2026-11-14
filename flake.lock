@@ -23,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794141942,
-        "narHash": "sha256-3TZvYOhe8riLPkPmiEBG3jp4e9EL+l+uV02EN6R/vF0=",
+        "lastModified": 1794396020,
+        "narHash": "sha256-c0fsEcmzP4C0rcH4gqrIBuKjhZm8xxKe9BeXaPSesqc=",
         "owner": "Wyze3306",
         "repo": "BedrockOnLinux",
-        "rev": "a93b6d9371db7819df9c6d71e6cb28c714d4365b",
+        "rev": "12a333349d3f103896c584c344c1103a7faa7226",
         "type": "github"
       },
       "original": {
