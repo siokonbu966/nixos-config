@@ -30,6 +30,7 @@
     ./programs/ollama
     ./programs/bat
     ./programs/w3m
+    ./programs/chawan
 
     # gui
     ./programs/ghostty/config.nix

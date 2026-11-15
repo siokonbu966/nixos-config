@@ -12,6 +12,7 @@
     ./programs/ripgrep
     ./programs/leaf
     ./programs/w3m
+    ./programs/chawan
     # cli
     ./programs/git
     ./programs/opencode
