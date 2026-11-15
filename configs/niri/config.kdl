@@ -611,6 +611,9 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
+    Mod+Shift+M hotkey-overlay-title="Meeting agenda" { spawn "noctalia" "msg" "panel-toggle" "yuta/meeting-bar:agenda"; }
+    Mod+Ctrl+M hotkey-overlay-title="Join current or next meeting" { spawn "noctalia" "msg" "plugin" "yuta/meeting-bar:calendar" "all" "join"; }
+
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }

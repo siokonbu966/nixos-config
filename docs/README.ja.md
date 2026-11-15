@@ -84,6 +84,7 @@ CI は `.#nixosConfigurations.saffron-ci...toplevel` と `.#darwinConfigurations
 
 - [ホストごとの詳細](./hosts/README.md) (英語)
 - [xremap](./xremap.md) — 独自キーボードレイアウトとレイヤー (英語)
+- [Noctalia カレンダー](./noctalia-calendar.md) — アカウント同期と Meeting Bar
 
 ## 補足
 
