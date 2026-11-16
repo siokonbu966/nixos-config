@@ -31,6 +31,7 @@
     ./programs/bat
     ./programs/w3m
     ./programs/chawan
+    ./programs/yt-dlp
 
     # gui
     ./programs/plamonic
