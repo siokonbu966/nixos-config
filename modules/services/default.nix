@@ -12,6 +12,9 @@
 { ... }:
 {
   imports = [
+    # shared helpers
+    ./lib/port-watchdog
+
     # web
     ./web/gitea
     ./web/linkding

@@ -11,7 +11,11 @@
         services.vikunja = {
           image = "vikunja/vikunja";
           restart = "unless-stopped";
-          ports = [ "10000:3456" ];
+          # 127.0.0.1 only: tailscaled binds its own 100.102.71.19:10000
+          # (`tailscale serve :10000` -> linkding), so a 0.0.0.0 publish
+          # collides and colima's ssh port forward permanently fails.
+          # Tailnet clients go through `tailscale serve :10101` -> 127.0.0.1:10000.
+          ports = [ "127.0.0.1:10000:3456" ];
           volumes = [
             "${config.home.homeDirectory}/src/tool/vikunja/files:/app/vikunja/files"
           ];
