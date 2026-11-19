@@ -66,9 +66,12 @@ in
         autoupdate = true;
       };
     };
+    # zephyr signs without a fixed key; freesia signs with the Secure Enclave
+    # identity managed by programs.nix-secure-enclave-key, which sets
+    # programs.git.signing.key itself.
     signing = {
       format = "ssh";
-    } // lib.optionalAttrs (device != "zephyr") {
+    } // lib.optionalAttrs (device != "zephyr" && device != "freesia") {
       key = "~/.ssh/github.pub";
     };
     includes = [

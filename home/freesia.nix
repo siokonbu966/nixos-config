@@ -3,6 +3,7 @@
   imports = [
     # cli
     ./programs/git
+    ./programs/nix-secure-enclave-key
     ./programs/nixvim
     ./programs/opencode
     ./programs/zsh
