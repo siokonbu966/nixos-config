@@ -26,7 +26,6 @@
     ./programs/direnv
     ./programs/late-sh
     ./programs/appcleaner
-    ./programs/discord
     ./programs/rea
     ./programs/ollama
     ./programs/bat
@@ -36,16 +35,17 @@
 
     # gui
     ./programs/plamonic
+    ./programs/brew/ghostty
     ./programs/ghostty/config.nix
     ./programs/tailscale-gui
     ./programs/appcleaner
-    ./programs/obs
+    ./programs/brew/obs
     ./programs/vesktop
     ./programs/kopuz
-    ./programs/whatcable
+    ./programs/brew/whatcable
     ./programs/firefox
     ./programs/google-chrome
-    ./programs/discord
+    ./programs/brew/discord
     ./programs/slack
     ./programs/signal-desktop
 
@@ -63,10 +63,10 @@
   ];
 
   programs.omniwm = {
-    enable = true;
+   enable = true;
   };
 
-  home = {
+ home = {
     username = username;
     homeDirectory = "/Users/${username}";
     stateVersion = "26.05";
