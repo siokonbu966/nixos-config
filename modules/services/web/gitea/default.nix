@@ -18,6 +18,7 @@
             USER_GID = "1000";
             GITEA__server__ROOT_URL = "https://gitea.ns-siokon.f5.si/";
             GITEA__server__SSH_DOMAIN = "gitea_ssh.ns-siokon.f5.si";
+            GITEA__server__SSH_PORT = "2222";
             GITEA__session__PROVIDER = "db";
           };
           volumes = [
