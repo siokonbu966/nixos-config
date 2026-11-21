@@ -124,6 +124,10 @@
       };
     };
     kopuz.url = "github:Kopuz-org/kopuz";
+    nix-secure-enclave-key = {
+      url = "github:ryoppippi/nix-secure-enclave-key/v0.2.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hermes-agent = {
       url = "github:NousResearch/hermes-agent";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
