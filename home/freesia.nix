@@ -48,6 +48,7 @@
     ./programs/brew/discord
     ./programs/slack
     ./programs/signal-desktop
+    ./programs/zotero
 
     # utils
     ./programs/nh
@@ -66,7 +67,7 @@
    enable = true;
   };
 
- home = {
+  home = {
     username = username;
     homeDirectory = "/Users/${username}";
     stateVersion = "26.05";
