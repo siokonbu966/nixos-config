@@ -4,5 +4,8 @@
     onActivation = {
       autoUpdate = false;
     };
+    casks = [
+      "karabiner-elements"
+    ];
   };
 }

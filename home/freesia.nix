@@ -19,7 +19,6 @@
     ./programs/ripgrep
     ./programs/leaf
     ./programs/slack
-    ./programs/tailscale-gui
     ./programs/emacs
     ./programs/ink
     ./programs/nb
