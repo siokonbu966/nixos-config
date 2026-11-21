@@ -43,7 +43,7 @@
   (when (executable-find "wl-paste")
     (let ((coding-system-for-read 'utf-8))
       (with-timeout (1 "")
-        (shell-command-to-string "wl-paste --no-newline --type text/plain 2>/dev/null")))))
+        (shell-command-to-string "wl-paste --no-newline 2>/dev/null")))))
 
 ;; --- X11 ---
 (defun my-clipboard-xclip-copy (text)
