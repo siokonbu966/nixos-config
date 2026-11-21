@@ -1,7 +1,5 @@
 { pkgs, lib, ... }:
 {
-  home.packages = lib.optional pkgs.stdenv.hostPlatform.isDarwin pkgs.brewCasks.obs;
-
   programs.obs-studio = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
 
