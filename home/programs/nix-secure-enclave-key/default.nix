@@ -35,16 +35,5 @@
     signByDefault = true;
   };
 
-  programs.ssh.settings = {
-    "github.com" = {
-      HostName = "github.com";
-      User = "git";
-    };
-    "gitea.ns-siokon.f5.si" = {
-      HostName = "100.102.71.19";
-      User = "git";
-      IdentitiesOnly = true;
-      Port = 2222;
-    };
-  };
+  programs.ssh.extraConfig = "Include ~/.ssh/hosts_config";
 }
