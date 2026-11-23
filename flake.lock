@@ -1413,11 +1413,11 @@
     "yomiyasu": {
       "flake": false,
       "locked": {
-        "lastModified": 1794443311,
-        "narHash": "sha256-5CVfVx2cNxOdW8uKOdo3Gjs8zJrNYdBFqwR/qBg/Gpk=",
+        "lastModified": 1795141659,
+        "narHash": "sha256-R/dPOsYefAw39uvr+jUcnfk2myUryOrh4PBwKlWBPXg=",
         "owner": "nanaism",
         "repo": "yomiyasu",
-        "rev": "db78b9bc5e868549b517a037df7a4d1c93edac23",
+        "rev": "c49d5f1bee91258e33e1febc3569c6c87be7669e",
         "type": "github"
       },
       "original": {
