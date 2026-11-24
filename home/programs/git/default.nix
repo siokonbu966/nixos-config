@@ -21,7 +21,8 @@ in
       ".mypy_cache/"
       ".ipynb_checkpoints/"
       "*~"
-      "\#*\#"
+      "\\#*\\#"
+      ".#*"
     ];
     settings = {
       inherit user;
