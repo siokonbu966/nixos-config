@@ -97,7 +97,7 @@
 ;;     (face-spec-set 'tab-bar-tab '((((background light)) (:background "gold")) (((background dark)) (:background "#808080")))))
 
 (setq auto-mode-alist
-      (append '(("\\.tex$" . yatex-mode)
+      (append '(("\\.tex$" . latex-mode)
     ("\\.txt$" . indented-text-mode)
     ("nifty.[a-z]*$" . xcscript-mode)
     ("jyusyo\\.sgm$" . ramdb-mode)

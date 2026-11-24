@@ -20,6 +20,9 @@ in
       ".pytest_cache/"
       ".mypy_cache/"
       ".ipynb_checkpoints/"
+      "*~"
+      "\\#*\\#"
+      ".#*"
     ];
     settings = {
       inherit user;
