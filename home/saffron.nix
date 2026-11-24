@@ -41,6 +41,7 @@
     ./programs/noctalia
     #./programs/kitty
     ./programs/vesktop
+    ./programs/discord
     ./programs/vlc
     ./programs/kopuz
     ./programs/tigervnc
