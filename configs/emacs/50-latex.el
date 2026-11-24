@@ -27,16 +27,7 @@
 (setq TeX-source-correlate-method 'synctex)
 
 ;; PDF Viewer
-(cond
- ((eq system-type 'darwin)
-  (setq TeX-view-program-selection
-        '((output-pdf "Default"))))
-
- ((eq system-type 'gnu/linux)
-  (setq TeX-view-program-selection
-        '((output-pdf "Zathura")))
-  (setq TeX-view-program-list
-        '(("Zathura" "zathura %o")))))
+(setq TeX-view-program-selection
+      '((output-pdf "Default")))
 
 (provide '50-latex)
-;;; 50-latex.el ends here
