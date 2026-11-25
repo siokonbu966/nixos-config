@@ -37,6 +37,8 @@
 
   services.tailscale.enable = true;
 
+  services.ollama.enable = true;
+
   environment.systemPackages = with pkgs; [
     xwayland-satellite
   ];
