@@ -10,6 +10,7 @@
     ../../../modules/mount
     ../../../modules/sops
     ../../../modules/vr
+    ../../../modules/audio
   ]
   ++ lib.optionals (!isCI) [
     ../../../modules/secureboot.nix
@@ -41,6 +42,7 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
+    alsa-utils
   ];
 
   boot.kernelModules = [ "v4l2loopback" ];
