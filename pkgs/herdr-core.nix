@@ -6,12 +6,12 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "herdr-core";
-  version = "0.1.21";
+  version = "0.1.22";
 
   # Prebuilt static release; see https://releases.herdr.dev/core/latest.json
   src = fetchurl {
     url = "https://releases.herdr.dev/core/${finalAttrs.version}/herdr-core-linux-x86_64.tar.gz";
-    hash = "sha256-eEJHVcEKQN3jigvbVcIKwZcG6a4F7Wj8Ks8fz/DZQcE=";
+    hash = "sha256-MFTsOZLOgMVxXXIcqp3O+mBWch0V3BE/R1CvznY7pd8=";
   };
 
   # The tarball holds a single static binary and no directory, so unpack it

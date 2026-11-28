@@ -15,12 +15,12 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "herdr-app";
-  version = "0.1.16";
+  version = "0.1.18";
 
   # Prebuilt release; see https://releases.herdr.dev/app/latest.json
   src = fetchurl {
     url = "https://releases.herdr.dev/app/${finalAttrs.version}/herdr-app-linux-x86_64.tar.gz";
-    hash = "sha256-KC0mMhlrI4IGz+Zr+2HA+vKZyhyRhDvQdlIbvjZXEhY=";
+    hash = "sha256-ihHt153UCzSfcobPUZELYuIRNtr48DAFqf0sTcWDD4M=";
   };
 
   dontConfigure = true;
