@@ -14,24 +14,32 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "effectcraft";
-  version = "0.24.1";
+  version = "0.25.1";
 
   src = fetchFromGitHub {
     owner = "storytold";
     repo = "effectcraft";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-dtqPop1xmtd/duzJt02QCZj5zrtVtyvUI8hj4TbeSkc=";
+    hash = "sha256-KgWUNQ5GTgGeQoH6oDbLOq552ZNjiHE1cKo+Cx8s9wg=";
   };
 
   cargoLock = {
     lockFile = finalAttrs.src + "/Cargo.lock";
     outputHashes = {
-      "craft-docpath-0.1.0" = "sha256-yTMWFdJDxJnbwHbing7TsrbmKRMhrjceMz5RwFJYt5g=";
-      "craft-ecproj-format-0.1.0" = "sha256-aEW6WiEyi9YB/mAVdhRJ/WaPBxaIhH1wkhenPE8KLNE=";
-      "craft-media-0.1.0" = "sha256-JfBkl7/RX3Fn1nCn0bpKsvtFhb8CVfOtkHp/ISuXc00=";
-      "craft-update-0.1.0" = "sha256-BD+uNOEutI9lGz1sWcdOBC4+VgT/7HlwpWGY73ZiGxs=";
+      "craft-aaf-0.1.0" = "sha256-tyLwrwp5M+9ynTAHKjsdeHPoBFXll3bFvBuPi3EI+GE=";
+      "craft-aep-0.1.0" = "sha256-Kf7u2YULLGpxoG2VNAhc+E5KUyi/Qxe9Rx92FfytIOU=";
+      "craft-audio-0.1.0" = "sha256-XHvPKqyixID8CqeHCLNm8SOtCRecQFjGAH+11UlMkuM=";
+      "craft-cms-0.1.0" = "sha256-E/7zf4yyxQ9pGK4dDD+752/ejvZQHfifFxA0YO75XHk=";
+      "craft-eps-0.1.0" = "sha256-UbYMhYKXMr3DhsGhNQUf0IqudJH+8xyQtCYIJjHVLJQ=";
+      "craft-exr-0.1.0" = "sha256-eEQQDCALVFT0E5stkYW+Q2HAZ9gkkZ5Ib5D/916WAUA=";
+      "craft-gif-0.1.0" = "sha256-j6e4j5qWNwkeIS1SzF3wRXwip/9REXI/SyyYDHWAiKc=";
+      "craft-jsonrpc-0.1.0" = "sha256-vjFuv9lELdNXE4FFW5JkfYEMl/WFZ+ffI0HhLNSgyTY=";
+      "craft-psd-0.1.0" = "sha256-3Lv1VdeSALw9c+d6zXpHxHkzn3KU4W44TP4esGhQ9Cg=";
+      "craft-svg-0.1.0" = "sha256-5dwle+2eSYAo3CQfJuRuIM27d9PBDE21cQlo273spHY=";
+      "craft-time-0.1.0" = "sha256-TPSHx8WYP53oAkcDLQLOhlbThs+kMrVg1rKLjY1BbKE=";
       "ecolor-0.37.0" = "sha256-xzgBk6K1X/MZ8WUlIdy+r/0cf1FDkhJJuwQHZX+WY9U=";
-      "filmcraft-aac-0.12.0" = "sha256-3air4KEDFztlwg+fYO8ziGA6zzQ/LoL77V72+mHF7VE=";
+      "filmcraft-bitstream-0.20.1" = "sha256-v6ZYa+C8z4iAT+rvs/xu4ZrI5TzEd6RNwo/9yBTtOwE=";
+      "vectorcraft-geom-0.18.0" = "sha256-bX2yTI2K4Xk4YNoNcS2WxyjJyp09iVtEJlqV37fVytM=";
       "winit-0.30.13" = "sha256-+67bk7cqhM5VHqROL3PeghmhKJvlPIxhU73ay45vaxw=";
     };
   };

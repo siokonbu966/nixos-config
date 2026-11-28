@@ -3,8 +3,8 @@
   ollama,
 }:
 let
-  version = "0.40.16";
-  llamaCppVersion = "b12177";
+  version = "0.40.19";
+  llamaCppVersion = "b12734";
 in
 ollama.overrideAttrs (oldAttrs: {
   inherit version;
@@ -13,7 +13,7 @@ ollama.overrideAttrs (oldAttrs: {
     owner = "ollama";
     repo = "ollama";
     tag = "v${version}";
-    hash = "sha256-ita7MMcdRVBVNmOXnopJX31hnCaPHOx9079YGci5v18=";
+    hash = "sha256-XEucojPeaE1qTlswF4S6bupHVJq7rWeaGXEXFRtvIK0=";
   };
 
   vendorHash = "sha256-1mzJrZUHH2ouP6I+LVojHbft7No5AumqKZVq0I/Ubsg=";
@@ -24,7 +24,7 @@ ollama.overrideAttrs (oldAttrs: {
       owner = "ggml-org";
       repo = "llama.cpp";
       tag = llamaCppVersion;
-      hash = "sha256-/bZRn+Zy4bqdJUWDX3a4+HClrsST60uXiNJT26mTgI0=";
+      hash = "sha256-tC6rd5SBptt2OdWzX19V/Xr7PJVOWaUnRZEYphKAeLs=";
     };
   };
 })

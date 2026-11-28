@@ -8,16 +8,16 @@
 }:
 
 let
-  version = "6.9.0";
+  version = "6.10.1";
 
   tarball = fetchurl {
     url = "https://registry.npmjs.org/rea-agents/-/rea-agents-${version}.tgz";
-    hash = "sha256-MiM4oVBeJVdwKhYBLn1Gq9tXKWQdmJOGYnYt+/t5Jio=";
+    hash = "sha256-6M8IyfqVTpmPyIaMI/qOX1GM25VTSI7CJ7MaO7aQMVA=";
   };
 
   lockfile = fetchurl {
     url = "https://raw.githubusercontent.com/morluto/rea/rea-agents-${version}/package-lock.json";
-    hash = "sha256-PLzox45vpKtpYY3PmifqHzRnC8FmTqd3/XmTkB4IoWM=";
+    hash = "sha256-8b265dpdv8CGeGfBgHUkUpYl9gYaBNY7goV5UkpmH34=";
   };
 in
 buildNpmPackage (finalAttrs: {
@@ -51,7 +51,7 @@ buildNpmPackage (finalAttrs: {
 
   dontNpmBuild = true;
 
-  npmDepsHash = "sha256-6hRmFRsPY6U5O0tpwA3mAUZIic5cO+M/kAs326Q3lNI=";
+  npmDepsHash = "sha256-EqIFpg3oE3sLihhhQFaMmOPgSUidxAyqNfEommX7AH8=";
 
   npmInstallFlags = [ "--omit=dev" ];
 
